@@ -1,2 +1,12 @@
-package org.example;public class RegistrationSuccessPage {
-}
+package org.example;
+
+import org.openqa.selenium.By;
+import org.testng.Assert;
+
+public class RegistrationSuccessPage extends Utils{
+    public void UserShouldBeAbleToRegisterSuccessfully() {
+        String expectedMessage = "Your registration completed";
+        String actualMessage = driver.findElement(By.xpath("//div[contains(text(),\"Your registration completed\")]")).getText();
+        //System.out.println("Actual message:" + actualMessage);
+        Assert.assertEquals(actualMessage, expectedMessage, "Registration is not Matching");
+    }}
